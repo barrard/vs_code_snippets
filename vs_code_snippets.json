@@ -15,247 +15,272 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
-		"Console_Log": {
-			"prefix": "cl",
-			"body": [
-				"console.log($0)"
-			],
-			"description": "console.log function"
-		},
-		"logger_log": {
-			"prefix": "ll",
-			"body": [
-				"logger.log($0)"
-			],
-			"description": "logger.log on node"
-		}
-		,
-		"Create_Reract_class": {
-			"prefix": "rcc",
-			"body": [
-				"import React from 'react';",
+"Console_Log": {
+	"prefix": "cl",
+	"body": [
+		"console.log($0)"
+	],
+	"description": "console.log function"
+},
+"logger_log": {
+	"prefix": "ll",
+	"body": [
+		"logger.log($0)"
+	],
+	"description": "logger.log on node"
+},
+"Create_Reract_class": {
+	"prefix": "rcc",
+	"body": [
+		"import React from 'react';",
+		"class Contracts extends React.Component{",
+		"\tconstructor(props) {",
+		"\t\tsuper(props);",
+		"\t\tthis.state={}",
+		"\t}",
+		"\trender(){",
+		"\t\treturn(",
+		"\t\t\t$0",
+		"\t\t)",
+		"\t}",
+		"}",
+		"export default Contracts",
+	],
+	"description": "React create class skeleton"
+},
+"div": {
+	"prefix": "div",
+	"body": [
+		"<div>$0</div>"
+	],
+	"description": "For Loop"
+},
+"list": {
+	"prefix": "li",
+	"body": [
+		"<li>$0</li>"
+	],
+	"description": "list elemetn jsx"
+},
+"ul": {
+	"prefix": "ul",
+	"body": [
+		"<ul></ul>"
+	],
+	"description": "ul"
+},
+"amchor": {
+	"prefix": "a",
+	"body": [
+		"<a href='#'>$0</a>"
+	],
+	"description": "For Loop"
+},
+"h1": {
+	"prefix": "h1",
+	"body": [
+		"<h1>$0</h1>"
+	],
+	"description": "h1"
+},
+"p": {
+	"prefix": "p",
+	"body": [
+		"<p>$0</p>"
+	],
+	"description": "p"
+},
+"module.exports": {
+	"prefix": "me",
+	"body": [
+		"module.exports = {",
+		"\t$0",
+		"}"
+	],
+	"description": "module.exports"
+},
+"div row": {
+	"prefix": "row",
+	"body": [
+		"<div class='row justify-content-center'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "Div Row"
+},
+"div col": {
+	"prefix": "col",
+	"body": [
+		"<div class='col-sm-$0'>",
+		"\t",
+		"</div>"
+	],
+	"description": "Div Col"
+},
+"bulma_container": {
+	"prefix": "cont",
+	"body": [
+		"<div class='container'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "Bulma Contaner"
+},
+"bulma_level": {
+	"prefix": "lvl",
+	"body": [
+		"<div class='level'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "Bulma Level"
+},
+"bulma_level-item": {
+	"prefix": "lvl-i",
+	"body": [
+		"<div class='level-item has-text-centered'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "Bulma Level item center text"
+},
+"slot": {
+	"prefix": "slot",
+	"body": [
+		"<slot></slot>"
+	],
+	"description": "slot"
+},
+"tile-a": {
+	"prefix": "tile-a",
+	"body": [
+		"<div class='tile is-ancestor'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "tile-ancestor"
+},
+"tile-c": {
+	"prefix": "tile-c",
+	"body": [
+		"<div class='tile is-child box'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "tile is child"
+},
+"tile-v": {
+	"prefix": "tile-v",
+	"body": [
+		"<div class='tile is-vertical is-parent box'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "tile-verticle parent"
+},
+"tile-p": {
+	"prefix": "tile-p",
+	"body": [
+		"<div class='tile is-parent'>",
+		"\t$0",
+		"</div>"
+	],
+	"description": "tile- is parent"
+},
+"del-s": {
+	"prefix": "del-s",
+	"body": [
+		"<button class='delete is-small'></button>",
+	],
+	"description": "small delete btn"
+},
+"new promise": {
+	"prefix": "newp",
+	"body": [
+		"return new Promise(function (resolve, reject) {",
+		"\t$0",
+		"});"
+	],
+	"description": "new promise"
+},
+"loger_log_error": {
+	"prefix": "lle",
+	"body": [
+		"logger.log('err'.bgRed)",
+		"logger.log(err)"
+	],
+	"description": "error logging catch"
+},
+"console_log_error": {
+	"prefix": "cle",
+	"body": [
+		"console.log('err'.bgRed)",
+		"console.log(err)"
+	],
+	"description": "error console catch"
+},
+"notification skeleton": {
+	"prefix": "notify",
+	"body": [
+		"const notification = {",
+		"\ttime: new Date().getTime()",
+		"\ttitle: 'transaction_error!'",
+		"\tbody: `${error.message}`",
+		"\tlink_path: `/account-wallet`",
+		"}",
+		"User.notify(user_id, notification)"
+	],
+	"description": "notify user"
+},
+"get_route": {
+	"prefix": "get",
+	"body": [
+		"app.get('/', (req, res)=>{",
+		"\t$0",
+		"})"
 
-				"class Contracts extends React.Component{",
-  				"\tconstructor(props) {",
-    				"\t\tsuper(props);",
-    				"\t\tthis.state={}",
-					"\t}",
+		
+	],
+	"description": "get route"
+},
+"post_route": {
+	"prefix": "post",
+	"body": [
+		"app.post('/${1:route}', (req, res)=>{",
+		"\t$0",
+		"})"
+	],
+	"description": "post route"
+},
+"try_catch": {
+	"prefix": "try",
+	"body": [
+			"try {",
+				"\t$0",
 
-					"\trender(){",
-						"\t\treturn(",
-							"\t\t\t$0",
-						"\t\t)",
-					"\t}",
-				"}",
-				"export default Contracts",
-
-			],
-			"description": "React create class skeleton"
-		}
-		,
-		"div": {
-			"prefix": "div",
-			"body": [
-				"<div>$0</div>"
-			],
-			"description": "For Loop"
-		},
-		"list": {
-			"prefix": "li",
-			"body": [
-				"<li>$0</li>"
-			],
-			"description": "list elemetn jsx"
-		},
-		"ul": {
-			"prefix": "ul",
-			"body": [
-				"<ul></ul>"
-			],
-			"description": "ul"
-		},
-		"amchor": {
-			"prefix": "a",
-			"body": [
-				"<a href='#'>$0</a>"
-			],
-			"description": "For Loop"
-		},
-		"h1": {
-			"prefix": "h1",
-			"body": [
-				"<h1>$0</h1>"
-			],
-			"description": "h1"
-		},
-		"p": {
-			"prefix": "p",
-			"body": [
-				"<p>$0</p>"
-			],
-			"description": "p"
-		},
-		"module.exports": {
-			"prefix": "me",
-			"body": [
-					"module.exports = {",
-					"\t$0",
-					"}"
-			],
-			"description": "module.exports"
-		}
-		,
-				"catch error": {
-			"prefix": ".th",
-			"body": [
-				".then((resp)=>{",
-				"\tlogger.log(resp)",
-				"})"				
-			],
-			"description": "catch error logger"
-		}
-		,
-
-				"div row": {
-			"prefix": "row",
-			"body": [
-				"<div class='row'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "Div Row"
-		}
-		,
-
-		"div col": {
-			"prefix": "col",
-			"body": [
-				"<div class='col-sm-$0'>",
-				"\t",
-				"</div>"
-			],
-			"description": "Div Col"
-		},
-
-		"bulma_container": {
-			"prefix": "cont",
-			"body": [
-				"<div class='container'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "Bulma Contaner"
-		},
-		"bulma_level": {
-			"prefix": "lvl",
-			"body": [
-				"<div class='level'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "Bulma Level"
-		},
-		"bulma_level-item": {
-			"prefix": "lvl-i",
-			"body": [
-				"<div class='level-item has-text-centered'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "Bulma Level item center text"
-		},
-		"slot": {
-			"prefix": "slot",
-			"body": [
-				"<slot></slot>"
-			],
-			"description": "slot"
-		},
-			
-		"tile-a": {
-			"prefix": "tile-a",
-			"body": [
-				"<div class='tile is-ancestor'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "tile-ancestor"
-		},
-		"tile-c": {
-			"prefix": "tile-c",
-			"body": [
-				"<div class='tile is-child box'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "tile is child"
-		},
-		"tile-v": {
-			"prefix": "tile-v",
-			"body": [
-				"<div class='tile is-vertical is-parent box'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "tile-verticle parent"
-		},
-		"tile-p": {
-			"prefix": "tile-p",
-			"body": [
-				"<div class='tile is-parent'>",
-				"\t$0",
-				"</div>"
-			],
-			"description": "tile- is parent"
-		},
-		"del-s": {
-				"prefix": "del-s",
-				"body": [
-					"<button class='delete is-small'></button>",
-				],
-				"description": "small delete btn"
-			},
-
-				
-							// "For_Loop": {
-							// 	"prefix": "for",
-							// 	"body": [
-							// 		"for (const ${2:element} of ${1:array}) {",
-							// 		"\t$0",
-							// 		"}"
-							// 	],
-							// 	"description": "For Loop"
-							// },
-							
-										// "For_Loop": {
-										// 	"prefix": "for",
-										// 	"body": [
-										// 		"for (const ${2:element} of ${1:array}) {",
-										// 		"\t$0",
-										// 		"}"
-										// 	],
-										// 	"description": "For Loop"
-										// },
-										
-													// "For_Loop": {
-													// 	"prefix": "for",
-													// 	"body": [
-													// 		"for (const ${2:element} of ${1:array}) {",
-													// 		"\t$0",
-													// 		"}"
-													// 	],
-													// 	"description": "For Loop"
-													// },
-													
-																// "For_Loop": {
-		// 	"prefix": "for",
-		// 	"body": [
-		// 		"for (const ${2:element} of ${1:array}) {",
-		// 		"\t$0",
-		// 		"}"
-		// 	],
-		// 	"description": "For Loop"
-		// },
+			"} catch (err) {",
+				"\tlogger.log('err'.bgRed)",
+				"\tlogger.log(err)",
+			"}"
+	],
+	"description": "node try catch"
+},
+"add_vuew_store": {
+	"prefix": "sto",
+	"body": [
+		"store:$$tore,"
+	],
+	"description": "adadd store"
+},
+// "For_Loop": {
+// 	"prefix": "for",
+// 	"body": [
+// 		"for (const ${2:element} of ${1:array}) {",
+// 		"\t$0",
+// 		"}"
+// 	],
+// 	"description": "For Loop"
+// },
 
 
 
