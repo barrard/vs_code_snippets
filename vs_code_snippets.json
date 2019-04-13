@@ -33,6 +33,11 @@
 	"prefix": "rcc",
 	"body": [
 		"import React from 'react';",
+		"import { connect } from 'react-redux';",
+		"import { toastr } from 'react-redux-toastr';",
+		"import { withRouter } from 'next/router';",
+		"\n",
+		"import Main_Layout from '../layouts/Main_Layout.js';",
 		"class Contracts extends React.Component{",
 		"\tconstructor(props) {",
 		"\t\tsuper(props);",
@@ -40,11 +45,19 @@
 		"\t}",
 		"\trender(){",
 		"\t\treturn(",
+		"\t\t\t<Main_Layout>",
 		"\t\t\t$0",
+		"\t\t\t</Main_Layout>",
 		"\t\t)",
 		"\t}",
 		"}",
-		"export default Contracts",
+		"\n",
+		"function mapStateToProps(state) {",
+		"\tconst { user, csrf, locals, crowdsales, two_factor_auth } = state;",
+		"\treturn { ...user, ...csrf, ...locals, ...crowdsales, ...two_factor_auth };",
+		"}",
+		"\n",
+		"export default connect(mapStateToProps)(withRouter(Contracts));"
 	],
 	"description": "React create class skeleton"
 },
@@ -99,10 +112,17 @@
 	],
 	"description": "module.exports"
 },
+"bind this":{
+	"prefix": "bind",
+	"body": [
+		"this.$0 = this.$0.bind(this)"
+	],
+	"description": "Bind This"
+},
 "div row": {
 	"prefix": "row",
 	"body": [
-		"<div class='row justify-content-center'>",
+		"<div className='row flex_center'>",
 		"\t$0",
 		"</div>"
 	],
@@ -111,7 +131,7 @@
 "div col": {
 	"prefix": "col",
 	"body": [
-		"<div class='col-sm-$0'>",
+		"<div className='col-sm-$0 flex_center'>",
 		"\t",
 		"</div>"
 	],
@@ -272,7 +292,46 @@
 	],
 	"description": "adadd store"
 },
-// "For_Loop": {
+"Export default": {
+	"prefix": "ed",
+	"body": [
+		"export default"
+	],
+	"description": "export default"
+}
+, "iso-fetch": {
+	"prefix": "iso",
+	"body": [
+		"const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';",
+		"const resp = await fetch(baseUrl + '/$0');"
+	],
+	"description": "For Loop"
+}
+// ,"For_Loop": {
+// 	"prefix": "for",
+// 	"body": [
+// 		"for (const ${2:element} of ${1:array}) {",
+// 		"\t$0",
+// 		"}"
+// 	],
+// 	"description": "For Loop"
+// },// "For_Loop": {
+// 	"prefix": "for",
+// 	"body": [
+// 		"for (const ${2:element} of ${1:array}) {",
+// 		"\t$0",
+// 		"}"
+// 	],
+// 	"description": "For Loop"
+// },// "For_Loop": {
+// 	"prefix": "for",
+// 	"body": [
+// 		"for (const ${2:element} of ${1:array}) {",
+// 		"\t$0",
+// 		"}"
+// 	],
+// 	"description": "For Loop"
+// },// "For_Loop": {
 // 	"prefix": "for",
 // 	"body": [
 // 		"for (const ${2:element} of ${1:array}) {",
