@@ -298,32 +298,54 @@
 		"export default"
 	],
 	"description": "export default"
-}
-, "iso-fetch": {
+}, 
+"iso-fetch": {
 	"prefix": "iso",
 	"body": [
 		"const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';",
 		"const resp = await fetch(baseUrl + '/$0');"
 	],
 	"description": "For Loop"
+},
+
+,"snippet_maker": {
+	"prefix": "snip",
+	"body": [
+		"\"For_Loop\": {",
+		"\"prefix\": \"for\",",
+		"\"body\": [",
+		"\"for (const ${2:element} of ${1:array}) {\",",
+			"\"\\t$0\",",
+			"\"}\"",
+			"],",
+			"\"description\": \"For Loop\"",
+		"}"
+	],
+	
+	"description": "snippet maker"
+},
+
+"meta_tag": {
+"prefix": "meta",
+"body": [
+"<meta name=\"\" content=\"\"/>"
+],
+"description": "meta tag"
+},
+"print": {
+"prefix": "pr",
+"body": [
+"print($0)"
+],
+"description": "print python"
 }
-// ,"For_Loop": {
-// 	"prefix": "for",
-// 	"body": [
-// 		"for (const ${2:element} of ${1:array}) {",
-// 		"\t$0",
-// 		"}"
-// 	],
-// 	"description": "For Loop"
-// },// "For_Loop": {
-// 	"prefix": "for",
-// 	"body": [
-// 		"for (const ${2:element} of ${1:array}) {",
-// 		"\t$0",
-// 		"}"
-// 	],
-// 	"description": "For Loop"
-// },// "For_Loop": {
+	
+
+		
+		
+	
+	
+,// "For_Loop": {
 // 	"prefix": "for",
 // 	"body": [
 // 		"for (const ${2:element} of ${1:array}) {",
