@@ -15,12 +15,26 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"log_date_string": {
+		"prefix": "nd",
+		"body": [
+			"new Date($0).toLocaleString()"
+		],
+		"description": "console.log function"
+	},
 	"Console_Log": {
 		"prefix": "cl",
 		"body": [
 			"console.log($0)"
 		],
 		"description": "console.log function"
+	},
+	"Console_Warn": {
+		"prefix": "cw",
+		"body": [
+			"console.warn($0)"
+		],
+		"description": "console.warn function"
 	},
 	"logger_log": {
 		"prefix": "ll",
@@ -35,9 +49,12 @@
 			"import React from 'react';",
 			"import { connect } from 'react-redux';",
 			"import { toastr } from 'react-redux-toastr';",
-			"import { withRouter } from 'next/router';",
+			"//import { withRouter } from 'next/router';",
+			"import { Link, withRouter } from 'react-router-dom';",
+			"import styled from 'styled-components';",
+
 			"\n",
-			"import Main_Layout from '../layouts/Main_Layout.js';",
+			"//import Main_Layout from '../layouts/Main_Layout.js';",
 			"class Contracts extends React.Component{",
 			"\tconstructor(props) {",
 			"\t\tsuper(props);",
@@ -53,8 +70,7 @@
 			"}",
 			"\n",
 			"function mapStateToProps(state) {",
-			"\tconst { user, csrf, locals, crowdsales, two_factor_auth } = state;",
-			"\treturn { ...user, ...csrf, ...locals, ...crowdsales, ...two_factor_auth };",
+			"\treturn state;",
 			"}",
 			"\n",
 			"export default connect(mapStateToProps)(withRouter(Contracts));"
@@ -276,8 +292,7 @@
 			"try {",
 			"\t$0",
 			"} catch (err) {",
-			"\tlogger.log('err'.bgRed)",
-			"\tlogger.log(err)",
+			"\tres.json({err})",
 			"}"
 		],
 		"description": "node try catch"
